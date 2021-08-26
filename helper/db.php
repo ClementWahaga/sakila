@@ -1,18 +1,22 @@
 <?php
-function pdo_connect_mysql()
-{
-  $username = 'root';
-  $password = "";
+class database{
 
-  try {
+  protected $connection = null;
 
-    $dbh = new PDO('mysql:host=localhost;dbname=sakila', $username, $password);
-    $dbh->setAttribute(PDO::ERRMODE_EXCEPTION, PDO::ATTR_ERRMODE);
-    $dbh->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
-
-    return $dbh;
-  } catch (PDOException $e) {
-    print "Erreur, vous avez etait deconnecté !: " . $e->getMessage() . "<br/>";
-    return false;
+  #creation de la connection
+  public function __construct($hostname,$dbname,$username,$password){
+    try {
+        # MySQL with PDO_MYSQL  
+        $this->connection = new PDO('mysql:host=localhost;dbname=sakila', $username, $password);
+        $this->connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION); 
+    }
+    catch (PDOException $e) {
+        $this->connection = null;
+        print "Erreur, vous avez etait deconnecté !: " . $e->getMessage() . "<br/>";
+        return false;
+    }
   }
 }
+?>
+    
+
