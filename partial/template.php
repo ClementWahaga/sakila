@@ -24,8 +24,20 @@
         <a href="index.php?p=home">
             <h1>SaKiLa</h1>
         </a>
+        <div class="container">
+  <div class="col">
+    <div class="col">
+      <a href="index.php?p=actor">Acteur</a>
+    </div>
+    <div class="col">
+      <a href="index.php?p=movie">Film</a>
     </div>
     
+  </div>
+</div>
+    
+    </div>
+
     
 
     <?= $content ; ?>
@@ -35,7 +47,6 @@
             <a href="index.php?p=home"><h2>SaKiLa</h2></a>
             <h4>©2021 by BlackCagouProd!</h4>
         </div>
-
     </footer>
 
 </body>
