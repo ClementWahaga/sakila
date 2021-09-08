@@ -3,8 +3,8 @@
 
 <div class="neuro">
         <i class="fas fa-user"></i>
-        <p>Doe</p>
-        <p>John</p>
+        <p>$actor=>actor_id</p>
+        <p>actor=>fName</p>
         <p>35 ans</p>
         <p>d.Joe@globex.org</p>
         <p>+687879683</p>

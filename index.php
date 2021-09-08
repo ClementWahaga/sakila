@@ -20,8 +20,8 @@ require './view/home.php';
 }elseif($p === 'actor'){
     require './view/actor.php';
 
-}elseif($p === 'chouchouter'){
-    require './view/chouchouter.php';
+}elseif($p === 'movie'){
+    require './view/movie.php';
 
 }elseif($p === 'deco'){
     require './view/deco.php';
