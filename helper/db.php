@@ -1,22 +1,38 @@
 <?php
-class database extends Pdo{
+class database {
+  private $db_name;
+  private $db_user;
+  private $db_pass;
+  private $db_host;
+  private $pdo;
+  
+  public function __construct($db_name='bibliotheque', $db_user='root', $db_pass = 'smokeweedz.913', $db_host = 'localhost'){
 
-  protected $connection = null;
+    $this->db_name = $db_name;
+    $this->db_user = $db_user;
+    $this->db_pass = $db_pass;
+    $this->db_host = $db_host;
 
-  #creation de la connection
-  public function __construct($hostname,$dbname,$username,$password){
-    try {
-        # MySQL with PDO_MYSQL  
-        $this->connection = new PDO('mysql:host=localhost;dbname=sakila', $username, $password);
-        $this->connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION); 
-    }
-    catch (PDOException $e) {
-        $this->connection = null;
-        print "Erreur, vous avez etait deconnecté !: " . $e->getMessage() . "<br/>";
-        return false;
-    }
   }
-}
-?>
+
+  private function getPdo(){
+    if ($this -> pdo === null){
+      $user='root';
+      $pass="smokeweedz.913";
+      $pdo = new PDO('mysql:host=localhost;dbname=sakila', $user, $pass);
+      $pdo->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
+      $this->pdo =$pdo;
+    }
+    return $this->pdo;
+
+  }
+  public function q ($statement){
+    $req = $this -> getPdo()->query($statement);
+    $result = $req -> fetchAll(PDO::FETCH_OBJ);
+    return $result ;
+  }
     
 
+  
+
+}

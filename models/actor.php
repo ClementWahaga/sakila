@@ -47,8 +47,7 @@ class actor extends database{
 
 
     public static function findAll() {
-        $data = database::exec('SELECT * FROM actor');
+        $data = parent::q('SELECT * FROM actor');
         return $data;
     }
-
 }
