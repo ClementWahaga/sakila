@@ -2,8 +2,10 @@
 
 class category extends database{
 
-    public $_category_id 
-    public $_name
+    const TABLE_NAME='category';
+
+    public $_category_id ;
+    public $_name;
 
 
     public function __construct($category_id,$name)
@@ -19,7 +21,7 @@ class category extends database{
     }
 
     public function setName($name) {
-        $this->name = $fname;
+        $this->name = $name;
         return $name;
     }
     //getter

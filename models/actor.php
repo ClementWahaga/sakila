@@ -1,11 +1,15 @@
 <?php
 
-class actor extends database{
 
-    public $actor_id
-    public $first_name
-    public $last_name 
-    private $last_update
+
+class actor extends database{
+    
+    const TABLE_NAME='actor';
+
+    protected $_actor_id;
+    protected $_first_name;
+    protected $_last_name;
+    protected $_last_update;
 
     public function __construct($actor_id,$first_name,$last_name)
     {
@@ -38,7 +42,13 @@ class actor extends database{
     }
 
     public function getLname() {
-        return $this->;
+        return $this->last_name;
+    }
+
+
+    public static function findAll() {
+        $data = database::exec('SELECT * FROM actor');
+        return $data;
     }
 
 }

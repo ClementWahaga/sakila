@@ -16,7 +16,7 @@ class Autoloader{
      * @param $class string Le nom de la classe à charger
      */
     static function autoload($class){
-        require __DIR__ .'/' . $class . '.php';
+        require 'models /' . $class . '.php';
     }
 
 }
