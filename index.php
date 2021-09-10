@@ -23,8 +23,8 @@ require './view/home.php';
 }elseif($p === 'movie'){
     require './view/movie.php';
 
-}elseif($p === 'deco'){
-    require './view/deco.php';
+}elseif($p === 'category'){
+    require './view/category.php';
 
 }elseif($p === 'truc&astuces'){
     require './view/truc&astuces.php';

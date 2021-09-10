@@ -32,4 +32,9 @@ class category extends database{
     public function getName() {
         return $this->name;
     }
+
+    public  function findAll() {
+        $data = parent::q('SELECT * FROM category');
+        return $data;
+    }
 }

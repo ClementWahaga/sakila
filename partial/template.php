@@ -32,7 +32,9 @@
     <div class="col">
       <a href="index.php?p=movie">Film</a>
     </div>
-    
+    <div class="col">
+      <a href="index.php?p=category">categories</a>
+    </div>
   </div>
 </div>
     
