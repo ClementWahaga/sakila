@@ -4,7 +4,7 @@
 $films = [];
 
 if (!empty($_GET)) {
-    $bdd = new PDO('mysql:host=localhost;dbname=sakila;charset=utf8;port=8889', 'root', 'root', [
+    $bdd = new PDO('mysql:host=localhost;dbname=sakila;charset=utf8;', 'root', 'smokeweedz.913', [
         'ATTR_ERRMODE' => PDO::ERRMODE_EXCEPTION
     ]);
 
@@ -62,21 +62,7 @@ if (!empty($_GET)) {
                             </em>
                         </p>
                         <?php else : ?>
-                            <?php foreach ($films as $film) : ?>
-
-                                <div class="card mb-1">
-                                    <div class="card-header">
-                                        <strong><?= $film['title'] ?> (sorti en <?= $film['release_year'] ?>)</strong>
-                                    </div>
-                                    <div class="card-body">
-                                        <?= $film['description'] ?>
-                                    </div>
-                                    <div class="card-footer">
-                                        <em>Durée du film : <?= $film['length'] ?> minutes</em>
-                                    </div>
-                                </div>
-
-                            <?php endforeach; ?>
+                            
                         <?php endif; ?>
                     <?php endif; ?>
                 </div>

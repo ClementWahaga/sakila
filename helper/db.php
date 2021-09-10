@@ -6,7 +6,7 @@ class database {
   private $db_host;
   private $pdo;
   
-  public function __construct($db_name='bibliotheque', $db_user='root', $db_pass = 'smokeweedz.913', $db_host = 'localhost'){
+  public function __construct($db_name='sakila', $db_user='root', $db_pass = 'smokeweedz.913', $db_host = 'localhost'){
 
     $this->db_name = $db_name;
     $this->db_user = $db_user;
@@ -15,7 +15,7 @@ class database {
 
   }
 
-  private function getPdo(){
+  public function getPdo(){
     if ($this -> pdo === null){
       $user='root';
       $pass="smokeweedz.913";
@@ -27,7 +27,7 @@ class database {
 
   }
   public function q ($statement){
-    $req = $this -> getPdo()->query($statement);
+    $req = $this->getPdo()->query($statement);
     $result = $req -> fetchAll(PDO::FETCH_OBJ);
     return $result ;
   }
