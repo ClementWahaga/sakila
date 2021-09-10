@@ -2,10 +2,10 @@
 $movie = new film($film_id='',$title='',$descritpion='',$release_year='',$language_id='',$original_language_id='',$rental_duration='',$lenght='',$replacement_cost='',$special_features='',$last_update='');
 $movie->findAll();
 
-var_dump($movie)
+//var_dump($movie->findAll())
 ?>
 
-<?php foreach ($movie as $data) : ?>
+<?php foreach ($movie->findAll() as $data) : ?>
 
     <div class="card mb-1">
         <div class="card-header">
@@ -15,7 +15,7 @@ var_dump($movie)
             <?= $data->description?>
         </div>
         <div class="card-footer">
-            <em>Durée du data : <?= $data->length ?> minutes</em>
+            <em>Durée du film : <?= $data->length ?> minutes</em>
         </div>
     </div>
 

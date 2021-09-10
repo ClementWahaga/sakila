@@ -134,10 +134,9 @@ class film extends database{
         return $this->last_update;
     }
     
-    
 
     public  function findAll() {
-        $data = database::q('SELECT * FROM film');
+        $data = parent::q('SELECT * FROM film');
         return $data;
     }
 }

@@ -5,8 +5,14 @@ $listActor->findAll();
 
 
 //var_export ($listActor);
+?>
 
-foreach($listActor as $key => $value) {
-    print "$key => $value\n";
-}
-echo "\n";
+<?php foreach ($listActor->findAll() as $data) : ?>
+
+    <div class="card mb-1">
+        <div class="card-header">
+            <strong><?= $data->first_name ?> <?= $data->last_name?></strong>
+        </div>
+    </div>
+
+<?php endforeach; ?>
