@@ -6,10 +6,10 @@ class actor extends database{
     
     const TABLE_NAME='actor';
 
-    protected $_actor_id;
-    protected $_first_name;
-    protected $_last_name;
-    protected $_last_update;
+   public $_actor_id;
+   public $_first_name;
+   public $_last_name;
+   protected $_last_update;
 
     public function __construct($actor_id,$first_name,$last_name)
     {
@@ -46,8 +46,8 @@ class actor extends database{
     }
 
 
-    public static function findAll() {
-        $data = parent::q('SELECT * FROM actor');
+    public  function findAll() {
+        $data = database::q('SELECT * FROM actor');
         return $data;
     }
 }

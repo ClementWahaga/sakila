@@ -26,12 +26,11 @@ class database {
     return $this->pdo;
 
   }
+  
   public function q ($statement){
-    $req = $this->getPdo()->query($statement);
-    $result = $req -> fetchAll(PDO::FETCH_OBJ);
+    $result =$this->getPdo()->query($statement)-> fetchAll(PDO::FETCH_OBJ);
     return $result ;
-  }
-    
+  } 
 
   
 

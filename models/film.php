@@ -6,24 +6,28 @@ class film extends database{
 
     public $_film_id ;
     public $_title;
+    public $_description;
     public $_release_year;
     public $_language_id;
     public $_original_language_id ;
     public $_rental_duration;
     public $_rental_rate;
+    public $_length;
     public $_replacement_cost;
     public $_special_features;
-    public $_last_update;
+    private $_last_update;
 
 
-    public function __construct($film_id,$title,$release_year,$language_id,$original_language_id,$rental_duration,$replacement_cost,$special_features,$last_update)
+    public function __construct($film_id,$title,$description,$release_year,$length,$language_id,$original_language_id,$rental_duration,$replacement_cost,$special_features,$last_update)
     {
         $this->setFilm($film_id);
         $this->settitle($title);
+        $this->setdescription($description);
         $this->setrelease_years($release_year);
         $this->setlanguage_id($language_id);
         $this->setoriginal_language_id($original_language_id);
         $this->setrental_duration($rental_duration);
+        $this->setlenght($length);
         $this->setreplacement_cost($replacement_cost);
         $this->setspecial_features($special_features);
         $this->setlast_update($last_update);
@@ -38,6 +42,11 @@ class film extends database{
     public function settitle($title) {
         $this->title = $title;
         return $title;
+    }
+
+    public function setdescription($description) {
+        $this->description = $description;
+        return $description;
     }
 
     public function setrelease_years($release_year) {
@@ -58,6 +67,11 @@ class film extends database{
     public function setrental_duration($rental_duration) {
         $this->rental_duration = $rental_duration;
         return $rental_duration;
+    }
+
+    public function setlenght($lenght) {
+        $this->lenght = $lenght;
+        return $lenght;
     }
 
     public function setreplacement_cost($replacement_cost) {
@@ -84,6 +98,10 @@ class film extends database{
         return $this->title;
     }
 
+    public function getdescription() {
+        return $this->description;
+    }
+
     public function getrelease_years() {
         return $this->release_years;
     }
@@ -100,6 +118,10 @@ class film extends database{
         return $this->rental_duration;
     }
 
+    public function getlenght() {
+        return $this->lenght;
+    }
+
     public function getreplacement_cost() {
         return $this->replacement_cost;
     }
@@ -111,9 +133,11 @@ class film extends database{
     public function getlast_update() {
         return $this->last_update;
     }
+    
+    
 
-    public static function findAll() {
-        $data = parent::q('SELECT * FROM film');
+    public  function findAll() {
+        $data = database::q('SELECT * FROM film');
         return $data;
     }
 }

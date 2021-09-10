@@ -1,6 +1,12 @@
 <?php
 
-$listActor = actor::findAll();
+$listActor = new actor($actor_id='',$first_name='',$last_name='');
+$listActor->findAll();
 
 
-print_r($listActor);
+//var_export ($listActor);
+
+foreach($listActor as $key => $value) {
+    print "$key => $value\n";
+}
+echo "\n";

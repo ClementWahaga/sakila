@@ -1,18 +1,21 @@
 <?php
-film::findAll()
+$movie = new film($film_id='',$title='',$descritpion='',$release_year='',$language_id='',$original_language_id='',$rental_duration='',$lenght='',$replacement_cost='',$special_features='',$last_update='');
+$movie->findAll();
+
+var_dump($movie)
 ?>
 
-<?php foreach ($films as $film) : ?>
+<?php foreach ($movie as $data) : ?>
 
     <div class="card mb-1">
         <div class="card-header">
-            <strong><?= $film['title'] ?> (sorti en <?= $film['release_year'] ?>)</strong>
+            <strong><?= $data->title ?> (sorti en <?= $data-> release_year ?>)</strong>
         </div>
         <div class="card-body">
-            <?= $film['description'] ?>
+            <?= $data->description?>
         </div>
         <div class="card-footer">
-            <em>Durée du film : <?= $film['length'] ?> minutes</em>
+            <em>Durée du data : <?= $data->length ?> minutes</em>
         </div>
     </div>
 
