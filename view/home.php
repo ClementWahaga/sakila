@@ -1,28 +1,31 @@
 <?php
 
+$search = new film($film_id='',$title='',$descritpion='',$release_year='',$language_id='',$original_language_id='',$rental_duration='',$lenght='',$replacement_cost='',$special_features='',$last_update='');
+$search->search();
+//var_dump($search->search())
 
-$films = [];
+// $films = [];
 
-if (!empty($_GET)) {
-    $bdd = new PDO('mysql:host=localhost;dbname=sakila;charset=utf8;', 'root', 'smokeweedz.913', [
-        'ATTR_ERRMODE' => PDO::ERRMODE_EXCEPTION
-    ]);
+// if (!empty($_GET)) {
+//     $bdd = new PDO('mysql:host=localhost;dbname=sakila;charset=utf8;', 'root', 'smokeweedz.913', [
+//         'ATTR_ERRMODE' => PDO::ERRMODE_EXCEPTION
+//     ]);
 
-    /**
-     * Exemple d'un prepare/execute sans paramètres :
-     * $request = "SELECT * FROM film";
-     * $response = $bdd->prepare($request);
-     * $response->execute();
-     */
+//     /**
+//      * Exemple d'un prepare/execute sans paramètres :
+//      * $request = "SELECT * FROM film";
+//      * $response = $bdd->prepare($request);
+//      * $response->execute();
+//      */
 
-    $response = $bdd->prepare("SELECT * FROM film WHERE title LIKE :title");
-    $response->execute([
-        'title' => '%'.$_GET['title'].'%',
-    ]);
+//     $response = $bdd->prepare("SELECT * FROM film WHERE title LIKE :title");
+//     $response->execute([
+//         'title' => '%'.$_GET['title'].'%',
+//     ]);
 
 
-    $films = $response->fetchAll(PDO::FETCH_ASSOC);
-}
+//     $films = $response->fetchAll(PDO::FETCH_ASSOC);
+// }
 
 ?>
 
@@ -30,11 +33,11 @@ if (!empty($_GET)) {
 
 
 
-    <div class="container mt-3">
+    <div >
         <div class="row">
             <div class="col-4">
 
-                <form action="search.php" method="get">
+                <form action="view/search.php" method="get">
 
                     <div class="form-group">
                         <label for="formTitle">Titre du film</label>
@@ -48,14 +51,14 @@ if (!empty($_GET)) {
 
                 <div class="col-8">
 
-                    <?php if (empty($_GET)) : ?>
+                    <?php if (empty($_GET['p'])) : ?>
                         <p class="lead">
                             <em>
                                 Veuillez rechercher un film.
                             </em>
                         </p>
                     <?php else: ?>
-                        <?php if (empty($films)) : ?>
+                        <?php if (empty($search->search())) : ?>
                             <p class="lead">
                             <em>
                                 Aucun film n'a été trouvé en base de données.

@@ -140,5 +140,8 @@ class film extends database{
         return $data;
     }
 
-    
+    public  function search() {
+        $data = parent::q('SELECT * FROM film WHERE title LIKE title');
+        return $data;
+    }
 }

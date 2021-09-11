@@ -1,18 +1,20 @@
 <?php
 
-$categories = new category($category_id,$name);
+$categories = new category($category_id='',$name='');
 $categories->findAll();
 
 
 //var_export ($categories);
 ?>
 
-<?php foreach ($categories->findAll() as $data) : ?>
+<div class="container">
+    <?php foreach ($categories->findAll() as $data) : ?>
 
-    <div class="card mb-1">
-        <div class="card-header">
-            <strong><?= $data->name ?></strong>
+        
+        <div class="neuro">
+            <i class="fas fa-bookmark"></i><br>
+            <strong><?= $data->name ?></strong>      
         </div>
-    </div>
 
-<?php endforeach; ?>
+    <?php endforeach; ?>
+</div>

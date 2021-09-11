@@ -6,13 +6,14 @@ $listActor->findAll();
 
 //var_export ($listActor);
 ?>
+<div class ="container">
+    <?php foreach ($listActor->findAll() as $data) : ?>
 
-<?php foreach ($listActor->findAll() as $data) : ?>
-
-    <div class="card mb-1">
-        <div class="card-header">
-            <strong><?= $data->first_name ?> <?= $data->last_name?></strong>
+        <div class="neuro">
+            <i class="fas fa-user"></i><br>
+            <p><?= $data->first_name ?> </p>
+            <p><?= $data->last_name?></p>
         </div>
-    </div>
-
-<?php endforeach; ?>
+        
+    <?php endforeach; ?>
+</div>
