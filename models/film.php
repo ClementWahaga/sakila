@@ -139,9 +139,25 @@ class film extends database{
         $data = parent::q('SELECT * FROM film');
         return $data;
     }
+    public  function findOne($film_id) {
+        $film_id = (int) $film_id;
+        $result = parent::q('SELECT * FROM film WHERE film_id ='.$film_id);
+        var_dump($result);
+        return $result;
+
+
+    }
 
     public  function search() {
-        $data = parent::q('SELECT * FROM film WHERE title LIKE title');
-        return $data;
+        $films=[];
+        if (!empty($_GET)){
+            $bdd = parent::getPdo();
+            $response = $bdd->prepare("SELECT * FROM film WHERE title LIKE title");
+            $response->execute(['title' => '%'.$_GET['title'].'%',]);
+            $films = $response->fetchAll(PDO::FETCH_ASSOC);
+            return $films;
+        }
+        
+    
     }
 }

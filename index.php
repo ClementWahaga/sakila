@@ -4,19 +4,20 @@ require './helper/db.php';
 
 Autoloader::register(); 
 
-if (isset($_GET['p'])){
-$p = $_GET['p'];
-}else{
+if (isset($_GET['p']))
+{
+    $p = $_GET['p'];
+}
+else{
     $p ='home';
 }
+
 
 
 ob_start();
 
 if ($p === 'home'){
 require './view/home.php';
-
-
 }elseif($p === 'actor'){
     require './view/actor.php';
 
@@ -26,8 +27,8 @@ require './view/home.php';
 }elseif($p === 'category'){
     require './view/category.php';
 
-}elseif($p === 'truc&astuces'){
-    require './view/truc&astuces.php';
+}elseif($p === 'single'){
+    require './view/single.php';
 
 }elseif($p === 'vosQuestions'){
     require './view/vosQuestions.php';

@@ -85,7 +85,7 @@ i {
 }
 
 a {
-    text-decoration: #333;
+    text-decoration: #fff;
     color: #000;
 }
 
@@ -96,6 +96,16 @@ a {
     margin-left: 0;
     border-radius: 3px 5px;
     /*justify-content: center;*/
+}
+
+.search {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    margin-top: 30px;
+    margin-left: 45%;
+    border-radius: 3px 5px;
+    /*justify-content: center;*/
+    color: #fff;
 }
 
 .container1 {

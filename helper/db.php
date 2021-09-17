@@ -28,9 +28,8 @@ class database {
   }
   
   public function q ($statement){
-    $req =$this->getPdo()->query($statement);
-    $result=$req-> fetchAll(PDO::FETCH_OBJ);
-    return $result ;
+    $req =$this->getPdo()->query($statement)-> fetchAll(PDO::FETCH_OBJ);
+    return $req ;
   } 
 
   

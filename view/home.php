@@ -2,46 +2,18 @@
 
 $search = new film($film_id='',$title='',$descritpion='',$release_year='',$language_id='',$original_language_id='',$rental_duration='',$lenght='',$replacement_cost='',$special_features='',$last_update='');
 $search->search();
-//var_dump($search->search())
 
-// $films = [];
-
-// if (!empty($_GET)) {
-//     $bdd = new PDO('mysql:host=localhost;dbname=sakila;charset=utf8;', 'root', 'smokeweedz.913', [
-//         'ATTR_ERRMODE' => PDO::ERRMODE_EXCEPTION
-//     ]);
-
-//     /**
-//      * Exemple d'un prepare/execute sans paramètres :
-//      * $request = "SELECT * FROM film";
-//      * $response = $bdd->prepare($request);
-//      * $response->execute();
-//      */
-
-//     $response = $bdd->prepare("SELECT * FROM film WHERE title LIKE :title");
-//     $response->execute([
-//         'title' => '%'.$_GET['title'].'%',
-//     ]);
-
-
-//     $films = $response->fetchAll(PDO::FETCH_ASSOC);
-// }
 
 ?>
-
-
-
-
-
-    <div >
+    <div class="search">
         <div class="row">
             <div class="col-4">
 
-                <form action="view/search.php" method="get">
+                <form action="home.php" method="get">
 
                     <div class="form-group">
                         <label for="formTitle">Titre du film</label>
-                        <input id="formTitle" name="title" type="text" class="form-control" placeholder="Rambo 3">
+                        <input id="formTitle" name="title" type="text" class="form-control" placeholder="Tapez un film">
                     </div>
 
                     <button class="btn btn-success float-right">Rechercher</button>
@@ -49,27 +21,35 @@ $search->search();
                 </form>
             </div>
 
-                <div class="col-8">
+            <div class="col-8">
 
-                    <?php if (empty($_GET['p'])) : ?>
+                <?php if (empty($_GET['title'])) : ?>
+                    <p class="lead">
+                        <em>
+                            Veuillez rechercher un film.
+                        </em>
+                    </p>
+                <?php else: ?>
+                    <?php if (empty($search)) : ?>
                         <p class="lead">
-                            <em>
-                                Veuillez rechercher un film.
-                            </em>
-                        </p>
-                    <?php else: ?>
-                        <?php if (empty($search->search())) : ?>
-                            <p class="lead">
-                            <em>
-                                Aucun film n'a été trouvé en base de données.
-                            </em>
-                        </p>
-                        <?php else : ?>
-                            
-                        <?php endif; ?>
+                        <em>
+                            Aucun film n'a été trouvé en base de données.
+                        </em>
+                    </p>
+                    <?php else : ?>
+                        <?php foreach ($search->search() as $data) : ?>
+
+                            <div class="card mb-1">
+                                <div class="card-header">
+                                    <strong><?= $data->title ?> </strong>
+                                </div>
+                            </div>
+
+                        <?php endforeach; ?>
                     <?php endif; ?>
-                </div>
+                <?php endif; ?>
             </div>
+            
         </div>
     </div>
     <!-- Optional JavaScript -->
