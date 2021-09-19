@@ -35,6 +35,9 @@
         <div class="menu">
           <a href="index.php?p=category">Categories</a>
         </div>
+        <div class="menu">
+          <a href="index.php?p=customer">Abonnes</a>
+        </div>
     
   </div>
     

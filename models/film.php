@@ -139,14 +139,18 @@ class film extends database{
         $data = parent::q('SELECT * FROM film');
         return $data;
     }
-    public  function findOne($film_id) {
-        $film_id = (int) $film_id;
-        $result = parent::q('SELECT * FROM film WHERE film_id ='.$film_id);
-        var_dump($result);
-        return $result;
 
+    public function findOne($film_id) {
+
+        if(isset($_GET)){
+            $film_id = (int)$film_id;
+            $result = parent::one('SELECT * FROM film WHERE film_id ='.$film_id);
+            return $result;
+        }
+        
 
     }
+   
 
     public  function search() {
         $films=[];

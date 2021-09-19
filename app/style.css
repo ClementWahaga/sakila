@@ -39,7 +39,7 @@ h4 {
     background-size: cover;
     background-attachment: fixed;
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(5, 1fr);
     /* display: flex;
     flex-direction: row; */
     text-align: center;
@@ -87,6 +87,10 @@ i {
 a {
     text-decoration: #fff;
     color: #000;
+}
+
+.link {
+    color: #fff;
 }
 
 .container {

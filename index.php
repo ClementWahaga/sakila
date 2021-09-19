@@ -30,8 +30,8 @@ require './view/home.php';
 }elseif($p === 'single'){
     require './view/single.php';
 
-}elseif($p === 'vosQuestions'){
-    require './view/vosQuestions.php';
+}elseif($p === 'customer'){
+    require './view/customer.php';
 }
 
 
