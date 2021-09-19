@@ -8,10 +8,9 @@ $movie = new film($film_id='',$title='',$descritpion='',$release_year='',$langua
         <div class="neuro">
             <i class="fas fa-film"></i>
             <p><?= $data->title ?> </p>
-            <p>sorti en <?= $data-> release_year ?></p>
             <!-- <p> <?= $data->description?></p> -->
             <em>Durée du film : <?= $data->length ?> minutes</em>
-            <a class='link' href="index.php?p=single&id=<?= $data->film_id;?>"><i class="fas fa-plus"></i></a>
+            <a class='link' href="index.php?p=single&film_id=<?= $data->film_id;?>"><i class="fas fa-plus"></i></a>
         </div>
         
     <?php endforeach; ?>

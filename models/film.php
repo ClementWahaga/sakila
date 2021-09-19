@@ -17,9 +17,12 @@ class film extends database{
     public $_special_features;
     private $_last_update;
 
+    
+
 
     public function __construct($film_id,$title,$description,$release_year,$length,$language_id,$original_language_id,$rental_duration,$replacement_cost,$special_features,$last_update)
     {
+        
         $this->setFilm($film_id);
         $this->settitle($title);
         $this->setdescription($description);
@@ -141,16 +144,12 @@ class film extends database{
     }
 
     public function findOne($film_id) {
-
-        if(isset($_GET)){
-            $film_id = (int)$film_id;
-            $result = parent::one('SELECT * FROM film WHERE film_id ='.$film_id);
-            return $result;
-        }
+        $film_id = $_GET['film_id'];
+        $result = parent::one('SELECT * FROM film WHERE film_id ='.$film_id);
+        return $result;
         
-
     }
-   
+    
 
     public  function search() {
         $films=[];

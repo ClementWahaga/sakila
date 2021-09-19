@@ -33,10 +33,12 @@ class database {
   } 
 
   public function one ($statement){
-    $req =$this->getPdo()->query($statement)-> fetch(PDO::FETCH_OBJ);
+    $req =$this->getPdo()->query($statement)->fetch(PDO::FETCH_OBJ);
     return $req ;
   }
 
   
 
 }
+
+
