@@ -45,4 +45,4 @@ require './view/home.php';
 
 
 $content = ob_get_clean();
-require './partial/template.php';
+require './view/partial/template.php';
