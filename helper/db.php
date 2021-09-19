@@ -6,7 +6,7 @@ class database {
   private $db_host;
   private $pdo;
   
-  public function __construct($db_name='sakila', $db_user='root', $db_pass = 'smokeweedz.913', $db_host = 'localhost'){
+  public function __construct($db_name='sakila', $db_user='root', $db_pass = '', $db_host = 'localhost'){
 
     $this->db_name = $db_name;
     $this->db_user = $db_user;
@@ -18,7 +18,7 @@ class database {
   public function getPdo(){
     if ($this -> pdo === null){
       $user='root';
-      $pass="smokeweedz.913";
+      $pass="";
       $pdo = new PDO('mysql:host=localhost;dbname=sakila', $user, $pass);
       $pdo->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
       $this->pdo =$pdo;
