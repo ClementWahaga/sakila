@@ -153,7 +153,7 @@ class film extends database{
 
     public  function search() {
         $films=[];
-        if (!empty($_GET)){
+        if (!empty($_POST)){
             $bdd = parent::getPdo();
             $response = $bdd->prepare("SELECT * FROM film WHERE title LIKE title");
             $response->execute(['title' => '%'.$_GET['title'].'%',]);
