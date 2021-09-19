@@ -9,14 +9,14 @@ $data = $movie->findOne($film_id);
     <div class="single">
         <i class="fas fa-film"></i>
         <h3><?= $data->title?> </h3>
-        <div><h5>sorti en </h5><?= $data->release_year ?></div>
-        <p><h5>description:</h5><?= $data->description ?></p>
+        <div><h5>sorti en :</h5><?= $data->release_year ?></div>
+        <div><h5>description:</h5><?= $data->description ?></div>
         <em><h5>Durée du film : </h5><?= $data->length ?> minutes</em>
         <div>
-            <form action="" methodo='POST'>
-                <button class="btn btn-success float-right">loué</button>
-                <button class="btn btn-warning float-right">rendre</button>
-            </form>
+        <form action="" methodo='POST'>
+            <button class="btn btn-success float-right">loué</button>
+            <button class="btn btn-warning float-right">rendre</button>
+        </form>
         </div>
         
         
