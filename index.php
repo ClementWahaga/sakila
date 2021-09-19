@@ -32,8 +32,10 @@ require './view/home.php';
 
 }elseif($p === 'customer'){
     require './view/customer.php';
-}
 
+}elseif($p === 'rent'){
+    require './view/rent.php';
+}
 
 
 

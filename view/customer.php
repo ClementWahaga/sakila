@@ -1,6 +1,6 @@
 <?php
 
-$listcustomer = new customer($customer_id='',$first_name='',$last_name='');
+$listcustomer = new customer($customer_id='',$first_name='',$last_name='',$email='',$active='');
 $listcustomer->findAll();
 
 
@@ -13,6 +13,8 @@ $listcustomer->findAll();
             <i class="fas fa-user"></i><br>
             <p><?= $data->first_name ?> </p>
             <p><?= $data->last_name?></p>
+            <p><?= $data->email?></p>
+            
         </div>
         
     <?php endforeach; ?>

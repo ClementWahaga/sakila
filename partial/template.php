@@ -38,6 +38,9 @@
         <div class="menu">
           <a href="index.php?p=customer">Abonnes</a>
         </div>
+        <div class="menu">
+          <a href="index.php?p=rent">location</a>
+        </div>
     
   </div>
     

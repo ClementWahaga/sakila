@@ -13,6 +13,7 @@ $listActor->findAll();
             <i class="fas fa-user"></i><br>
             <p><?= $data->first_name ?> </p>
             <p><?= $data->last_name?></p>
+            
         </div>
         
     <?php endforeach; ?>
